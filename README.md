@@ -20,6 +20,7 @@ tar -xzf
 Follow this project board to know the latest status of the project: [http://...]([http://...])  
 
 ### How to build
+- Project Board: https://trello.com/invite/b/liNAxjra/ATTIa250225fa091e186dbdc2dda21e204de1F4AF3AD/project-progress
 - Use this github repository: ... 
 - Specify what branch to use for a more stable release or for cutting edge development.  
 - Use InteliJ 11
