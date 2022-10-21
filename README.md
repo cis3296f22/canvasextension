@@ -3,6 +3,17 @@ Put here a short paragraph describing your project.
 Adding an screenshot or a mockup of your application in action would be nice.  
 
 ![This is a screenshot.](images.png)
+
+# How to install
+-First, download the latest source code under one directory.
+-In the chrome browser, enter 
+```
+chrome://extensions
+``` 
+into the search bar and press enter.
+-Next, enable developer mode by clicking the toggle switch next to 'Developer Mode' at the top right corner of the browser page.
+-Finally, click the 'Load unpacked' button near the top left corner of the browser page and select the extension's directory/folder.
+
 # How to run
 Provide here instructions on how to use your application.   
 - Download the latest binary from the Release section on the right on GitHub.  
