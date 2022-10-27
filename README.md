@@ -19,7 +19,7 @@ The application only runs when you have Canvas open. The application replaces th
 
 Follow this project board to know the latest status of the project: https://trello.com/invite/b/liNAxjra/ATTIa250225fa091e186dbdc2dda21e204de1F4AF3AD/project-progress. Email me if you have any problems or ideas tylerhweiss@temple.edu
 
-### How to build 
+# How to build 
 
 - Must have Chrome 
 - Must have Developer mode on in Extensions options
