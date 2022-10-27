@@ -1,0 +1,9 @@
+body{
+	width: 150px;
+	height: 75%;
+}
+h3 {
+	text-align: left;
+	font-family: "Monospace", 'Courier New', Courier; 
+	font-size: medium;
+}
