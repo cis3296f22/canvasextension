@@ -1,6 +1,7 @@
-# Project Name
+# Canvas Chrome Extension
 
-A short paragraph describing your project. TODO
+This is a Chrome extension that upgrades the user experience when using Canvas. The extension will allow users to change the theme to dark mode, change the course name, and supply a list of all assignments due on a side panel. The product will only run when Canvas is running on Chrome. The extension should only change what the user sees on the front end.
+
 Add an screenshot TODO
 
 # How to install
