@@ -3,12 +3,18 @@
     "description": "Base Level Extension",
     "version": "1.0",
     "manifest_version": 3,
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "tabs",
+      "storage"
+    ],
     "action": {
       "default_popup": "html/popup.html",
       "default_icon": "pics/canvas_logo.png"
     },
     "content_scripts": [
-      {
+      { 
         "matches": ["https://*/*"],
         "js": ["js/content.js"]
       }
