@@ -4,8 +4,8 @@ const url = window.location.href;
 isDomain();
 function isDomain(){
     if (domain.includes("canvas") || domain.includes("instructure")) {
-        alert("On Canvas!")
-        darkMode();
+       //alert("On Canvas!")
+       //darkMode();
     }
 }
 
