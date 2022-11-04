@@ -8,26 +8,23 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 });
 
 //functionality of dark mode button
-document.addEventListener(
-  "DOMContentLoaded",
-  function () {
+document.addEventListener("DOMContentLoaded", function () {
     var darkModeToggle = document.getElementById("darkModeToggle");
-    darkModeToggle.addEventListener(
-      "click",
+    darkModeToggle.addEventListener("click",
       function () {
         if (this.checked){
           chrome.scripting.executeScript({
             target: { tabId: tabId, allFrames: true },
             files: ["js/darkMode.js"],
           });
-		}
-		else{
-			chrome.scripting.executeScript({
-				target: { tabId: tabId, allFrames: true },
-				files: ["js/undoDarkMode.js"],
-			  });
-		}
-      },
+		    }
+		    else{
+			    chrome.scripting.executeScript({
+				    target: { tabId: tabId, allFrames: true },
+				    files: ["js/undoDarkMode.js"],
+			    });
+		    }
+    },
       false
     );
   },
