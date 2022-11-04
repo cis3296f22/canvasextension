@@ -1,15 +1,57 @@
-body{
-	width: 300px;
-	height: 600px;
+body {
+  width: 600px;
+  height: 100%;
+  font-family: "Rubik", sans-serif;
+  color: #e2e2e2;
+  background: #161616;
+}
+h1 {
+  font-size: 1.5em;
+  font-weight: 500;
+  text-align: left;
+}
+h2 {
+  font-size: 1.2em;
+  font-weight: 500;
+  text-align: left;
 }
 h3 {
-	text-align: left;
-	font-family: "Monospace", 'Courier New', Courier; 
-	font-size: medium;
+  text-align: left;
+  font-family: "Monospace", "Courier New", Courier;
+  font-size: medium;
 }
 
-button {
-	height: 30px;
-	width: 50px;
-	border: 5px;
+.option {
+  border: 1px solid transparent;
+  height: 38px;
+  display: flex;
+  align-items: center;
+}
+.option input {
+  display: none;
+}
+.options {
+  display: flex;
+}
+
+.options input:nth-of-type(1).checked ~ .slider .sliderknob {
+  background-color: #8dd28d;
+}
+.options input:nth-of-type(2).checked ~ .slider .sliderknob {
+  transform: translate(30px);
+  background-color: #727272;
+}
+.option span {
+  margin-left: 8px;
+  font-size: 16px;
+}
+.options-left {
+  margin-right: 12px;
+}
+.options-left,
+.options-right {
+  width: 50%;
+}
+.option-background {
+  color: #fff;
 }
