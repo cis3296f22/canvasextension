@@ -15,13 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (this.checked){
           chrome.scripting.executeScript({
             target: { tabId: tabId, allFrames: true },
-            files: ["js/darkMode.js"],
+            files: ["js/undoDarkMode.js"],
           });
 		    }
 		    else{
 			    chrome.scripting.executeScript({
 				    target: { tabId: tabId, allFrames: true },
-				    files: ["js/undoDarkMode.js"],
+            files: ["js/darkMode.js"],
 			    });
 		    }
     },

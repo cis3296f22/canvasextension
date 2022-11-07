@@ -4,18 +4,21 @@ const url = window.location.href;
 isDomain();
 function isDomain(){
     if (domain.includes("canvas") || domain.includes("instructure")) {
-       //alert("On Canvas!")
-       //darkMode();
+       console.log("On Canvas!")
+       darkMode();
     }
 }
 
 isCourses();
 function isCourses(){
     if ((domain.includes("canvas") || domain.includes("instructure")) && url.includes("courses")) {
-            // alert("On Courses!")
+        console.log("On Courses!")
         }
 }
 
+function darkMode(){
+  document.querySelector("html").style.filter = "invert(1) hue-rotate(180deg)";
+}
 
 function toggle() {
     var lightMode = document.getElementById("style1"),
