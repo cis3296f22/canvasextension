@@ -4,18 +4,20 @@ const url = window.location.href;
 isDomain();
 function isDomain() {
   if (domain.includes("canvas") || domain.includes("instructure")) {
-    chrome.storage.sync.get(["darkMode"], function (result) {
-      if (result.darkMode) {
-        darkMode();
-      } else {
-        undoDarkMode();
+    chrome.storage.sync.get(["darkMode", "backgroundImg"], function (result) {
+      setDarkMode(result.darkMode);
+      if (result.backgroundImg) {
+        document.body.style.backgroundImage =
+          "url('" + result.backgroundImg + "')";
       }
     });
   }
 }
 
-function darkMode() {
-  document.querySelector("html").style.filter = "invert(1) hue-rotate(180deg)";
+function setDarkMode(enabled) {
+  document.querySelector("html").style.filter = enabled
+    ? "invert(1) hue-rotate(180deg)"
+    : "";
 }
 
 function toggle() {
