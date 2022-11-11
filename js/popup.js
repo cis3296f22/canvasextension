@@ -17,6 +17,7 @@ document.addEventListener(
       backgroundTextBox.value = result.backgroundImg;
     });
 
+
     darkModeToggle.addEventListener(
       "click",
       function () {
@@ -35,6 +36,7 @@ document.addEventListener(
       },
       false
     );
+
   },
   false
 );
@@ -57,4 +59,9 @@ function readyBackground() {
       });
       chrome.storage.sync.set({backgroundImg: url});
     });
+}
+
+function colorChoice(){
+    var x = document.getElementById("colorpicker").value;
+    document.body.style.backgroundColor = x;
 }
