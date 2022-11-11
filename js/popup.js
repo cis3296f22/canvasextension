@@ -1,60 +1,58 @@
 "use strict";
 
-//gets id of current tab so you can edit style
 var tabId;
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
   var activeTab = tabs[0];
-  tabId = activeTab.id; // or do whatever you need
+  tabId = activeTab.id;
 });
 
-//functionality of dark mode button
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    readyBackground();
     var darkModeToggle = document.getElementById("darkModeToggle");
-    darkModeToggle.addEventListener("click",
+    var backgroundTextBox = document.getElementById("url_textbox");
+    chrome.storage.sync.get(["darkMode", "backgroundImg"], function (result) {
+      darkModeToggle.checked = result.darkMode;
+      backgroundTextBox.value = result.backgroundImg;
+    });
+
+    darkModeToggle.addEventListener(
+      "click",
       function () {
-        if (this.checked){
+        if (this.checked) {
+          chrome.scripting.executeScript({
+            target: { tabId: tabId, allFrames: true },
+            files: ["js/darkMode.js"],
+          });
+        } else {
           chrome.scripting.executeScript({
             target: { tabId: tabId, allFrames: true },
             files: ["js/undoDarkMode.js"],
           });
-		    }
-		    else{
-			    chrome.scripting.executeScript({
-				    target: { tabId: tabId, allFrames: true },
-            files: ["js/darkMode.js"],
-			    });
-		    }
-    },
+        }
+        chrome.storage.sync.set({ darkMode: this.checked });
+      },
       false
     );
   },
   false
 );
 
-
-function change_img(input){
-  console.log(input);
-  document.body.style.backgroundImage = "url('"+input+"')";
-  
-  //document.querySelector("background").style.filter = ""; 
-  //Need to re-filter background image in the event of dark mode is on
-  
+function changeImg(input) {
+  document.body.style.backgroundImage = "url('" + input + "')";
 }
 
-//document.getElementById("backgroundButton").addEventListener("click", change_img);
-
-document.addEventListener('DOMContentLoaded', readyBackground  , false);
-
-function readyBackground(){
-  document.getElementById('backgroundButton').addEventListener('click', 
-  function(){
-    //change_img(document.getElementById('url_textbox').value)
-    chrome.scripting.executeScript({
-      target: { tabId: tabId, allFrames: true },
-      func: change_img,
-      args: [(document.getElementById('url_textbox').value)]
+function readyBackground() {
+  document
+    .getElementById("backgroundButton")
+    .addEventListener("click", function () {
+      var url = document.getElementById("url_textbox").value;
+      chrome.scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: changeImg,
+        args: [url],
+      });
+      chrome.storage.sync.set({backgroundImg: url});
     });
-  }
-  )
 }
-
