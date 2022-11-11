@@ -41,6 +41,8 @@ document.addEventListener(
 
 function changeImg(input) {
   document.body.style.backgroundImage = "url('" + input + "')";
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundSize = "contain";
 }
 
 function readyBackground() {

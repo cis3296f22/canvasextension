@@ -7,8 +7,9 @@ function isDomain() {
     chrome.storage.sync.get(["darkMode", "backgroundImg"], function (result) {
       setDarkMode(result.darkMode);
       if (result.backgroundImg) {
-        document.body.style.backgroundImage =
-          "url('" + result.backgroundImg + "')";
+        document.body.style.backgroundImage = "url('" + result.backgroundImg + "')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "contain";
       }
     });
   }
