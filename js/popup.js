@@ -10,12 +10,19 @@ document.addEventListener(
   "DOMContentLoaded",
   function () {
     readyBackground();
+    myFunction();
     var darkModeToggle = document.getElementById("darkModeToggle");
     var backgroundTextBox = document.getElementById("url_textbox");
     chrome.storage.sync.get(["darkMode", "backgroundImg"], function (result) {
       darkModeToggle.checked = result.darkMode;
       backgroundTextBox.value = result.backgroundImg;
     });
+
+    colorpicker.addEventListener(
+          "click",
+          function () {
+            document.body.style.backgroundColor = "#0000ff";
+          }
 
     darkModeToggle.addEventListener(
       "click",
@@ -57,4 +64,9 @@ function readyBackground() {
       });
       chrome.storage.sync.set({backgroundImg: url});
     });
+}
+
+function myFunction(){
+    var x = document.getElementById("myColor").value;
+    document.body.style.backgroundColor = "#0000ff";
 }
