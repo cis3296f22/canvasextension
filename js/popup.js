@@ -18,6 +18,7 @@ document.addEventListener(
       backgroundTextBox.value = result.backgroundImg;
     });
 
+
     darkModeToggle.addEventListener(
       "click",
       function () {
@@ -36,6 +37,7 @@ document.addEventListener(
       },
       false
     );
+
   },
   false
 );
@@ -73,3 +75,8 @@ function editMenuBar() {
 }
 
 
+
+function colorChoice(){
+    var x = document.getElementById("colorpicker").value;
+    document.body.style.backgroundColor = x;
+}
