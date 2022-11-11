@@ -57,6 +57,14 @@ h3 {
   width: 100px;
   left: 75px;
 }
+ /* moving background option */ 
+.background-container{
+  display: flex;
+  position:absolute;
+  height: 30px;
+  top: 50px;
+  margin-left: 10px;
+}
 
 .options input:nth-of-type(1).checked ~ .slider .sliderknob {
   background-color: #8dd28d;
