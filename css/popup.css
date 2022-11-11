@@ -87,3 +87,22 @@ h3 {
 .option-background {
   color: #fff;
 }
+
+.sideMenu{
+  display: flex;
+  position:absolute;
+  height: 30px;
+  top: 50px;
+  margin-left: 10px;
+  margin-top: 40px;
+}
+
+.color-container{
+  display: flex;
+  position:absolute;
+  height: 30px;
+  top: 50px;
+  margin-left: 10px;
+  margin-top: 80px;
+
+}

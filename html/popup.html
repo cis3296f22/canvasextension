@@ -22,17 +22,20 @@
 					</label>
                 </div>
 				<div class="background-container" >
-					<input type="url" name="" id="url_textbox" placeholder="Enter image url here">
 					<button id="backgroundButton">change background</button>	
+					<input type="url" name="" id="url_textbox" placeholder="Enter image url here">
 				</div>
-				<button onclick="colorPicker()" style="position: absolute; top:150px">Change Color</button>
+
 				
-			</div>
-				<div class="color-container" style="position: absolute; top:100px">
+				<div class="color-container" >
+					<button onclick="colorPicker()" >Change Color</button>
 					<label for="colorpicker">Color Picker:</label>
 					<input type="color" id="colorpicker" value="#0000ff">
+					
 				</div>
-		</div>
+				<div class="sideMenu">
+					<button id="sideMenuButton">Remove History</button>
+				</div>
             </div>
         </div>
 	<script src="../js/popup.js"></script>				
