@@ -74,8 +74,6 @@ function editMenuBar() {
 		});
 }
 
-
-
 function colorChoice(){
     var x = document.getElementById("colorpicker").value;
     document.body.style.backgroundColor = x;
