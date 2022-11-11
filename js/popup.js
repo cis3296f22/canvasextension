@@ -10,6 +10,7 @@ document.addEventListener(
   "DOMContentLoaded",
   function () {
     readyBackground();
+	editMenuBar();
     var darkModeToggle = document.getElementById("darkModeToggle");
     var backgroundTextBox = document.getElementById("url_textbox");
     chrome.storage.sync.get(["darkMode", "backgroundImg"], function (result) {
@@ -58,3 +59,17 @@ function readyBackground() {
       chrome.storage.sync.set({backgroundImg: url});
     });
 }
+
+function editMenuBar() {
+	document
+		.getElementById("sideMenuButton")
+		.addEventListener("click", function() {
+			chrome.scripting.executeScript({
+				target: {tabId: tabId, allFrames: true},
+				files: ["js/sideMenu.js"],
+			});
+
+		});
+}
+
+
