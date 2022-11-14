@@ -42,14 +42,21 @@ h1 {
   left: 75px;
 }
 
+.backgroundLabel{
+  font-size: 18px;
+  position:absolute;
+  top: 120px;
+  width: 100px;
+}
+
 /* moving background option */ 
 .background-container{
   display: flex;
   position:absolute;
   height: 30px;
-  top: 50px;
-  margin-left: 10px;
+  top: 170px;
 }
+
 
 .options input:nth-of-type(1).checked ~ .slider .sliderknob {
   background-color: #8dd28d;
@@ -74,8 +81,7 @@ h1 {
   display: flex;
   position:absolute;
   height: 30px;
-  top: 50px;
-  margin-left: 10px;
+  top: 270px;
   margin-top: 40px;
 }
 
@@ -83,9 +89,15 @@ h1 {
   display: flex;
   position:absolute;
   height: 30px;
-  top: 50px;
-  margin-left: 10px;
+  top: 300px;
   margin-top: 80px;
+}
+
+.sideMenuLabel{
+  font-size: 18px;
+  position:absolute;
+  top: 240px;
+  width: 100px;
 }
 
 .button {
