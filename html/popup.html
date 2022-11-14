@@ -7,39 +7,32 @@
   <body>
 	<div class="main">
 		<div class="header">
-			<img src="../pics/canvas-logo.png" alt="Canvas logo: Circle with concentric dots"
+			<img src="../pics/canvas_logo.png" alt="Canvas logo: Circle with concentric dots"
 			height="50" width="50"
 			style = "margin-left: 10px; margin-top: 10px;">
 			<h1>Welcome to Canvas</h1>
 		</div>
 		<div class="options">
-            <div class="options-left">
-                <div class="option-container">
-					<label class="toggle">
-						<input id= "darkModeToggle" class="toggle-checkbox" type="checkbox" >
-						<div class="toggle-switch"></div>
-						<span class="darkmodetoggle-label">Dark mode</span>
-					</label>
-                </div>
-				<div class="background-container" >
-					<button id="backgroundButton">change background</button>	
-					<input type="url" name="" id="url_textbox" placeholder="Enter image url here">
-				</div>
-
-				
-				<div class="color-container" >
-					<button onclick="colorPicker()" >Change Color</button>
-					<label for="colorpicker">Color Picker:</label>
-					<input type="color" id="colorpicker" value="#0000ff">
-					
-				</div>
-				<div class="sideMenu">
-					<button id="sideMenuButton">Remove History</button>
-				</div>
-            </div>
+			<div class="darkmode-toggle">
+				<label class="toggle">
+					<input id= "darkModeToggle" class="toggle-checkbox" type="checkbox" >
+					<div class="toggle-switch"></div>
+					<span class="darkmodetoggle-label">Dark mode</span>
+				</label>
+			</div>
+			<div class="background-container">
+				<button id="backgroundButton">change background</button>	
+				<input type="url" name="" id="url_textbox" placeholder="Enter image url here">
+			</div>
+			<div class="color-container">
+				<button onclick="colorPicker()">Change Color</button>
+				<label for="colorpicker">Color Picker:</label>
+				<input type="color" id="colorpicker" value="#0000ff">
+			</div>
+			<div class="sideMenu">
+				<button id="sideMenuButton">Remove History</button>
+			</div>
         </div>
 	<script src="../js/popup.js"></script>				
   </body>
 </html>
-
-</script>
