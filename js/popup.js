@@ -1,80 +1,87 @@
 "use strict";
 
-var tabId;
-chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-  var activeTab = tabs[0];
-  tabId = activeTab.id;
-});
+function popup(tabs, storage, scripting, doc) {
+  var tabId;
+  tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    var activeTab = tabs[0];
+    tabId = activeTab.id;
+  });
 
-document.addEventListener(
-  "DOMContentLoaded",
-  function () {
-    readyBackground();
-	editMenuBar();
-    var darkModeToggle = document.getElementById("darkModeToggle");
-    var backgroundTextBox = document.getElementById("url_textbox");
-    chrome.storage.sync.get(["darkMode", "backgroundImg"], function (result) {
+  doc.addEventListener("DOMContentLoaded", init, false);
+
+  function init() {
+    doc
+      .getElementById("backgroundButton")
+      .addEventListener("click", onBackgroundClick);
+
+    doc.getElementById("sideMenuButton").addEventListener("click", onMenuClick);
+
+    doc
+      .getElementById("darkModeToggle")
+      .addEventListener("click", onDarkModeToggle, false);
+
+    storage.get(["darkMode", "backgroundImg"], function (result) {
+      var backgroundTextBox = doc.getElementById("url_textbox");
+      var darkModeToggle = doc.getElementById("darkModeToggle");
+
       darkModeToggle.checked = result.darkMode;
       backgroundTextBox.value = result.backgroundImg;
     });
+  }
 
-
-    darkModeToggle.addEventListener(
-      "click",
-      function () {
-        if (this.checked) {
-          chrome.scripting.executeScript({
-            target: { tabId: tabId, allFrames: true },
-            files: ["js/darkMode.js"],
-          });
-        } else {
-          chrome.scripting.executeScript({
-            target: { tabId: tabId, allFrames: true },
-            files: ["js/undoDarkMode.js"],
-          });
-        }
-        chrome.storage.sync.set({ darkMode: this.checked });
-      },
-      false
-    );
-
-  },
-  false
-);
-
-function changeImg(input) {
-  document.body.style.backgroundImage = "url('" + input + "')";
-  document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundSize = "contain";
-}
-
-function readyBackground() {
-  document
-    .getElementById("backgroundButton")
-    .addEventListener("click", function () {
-      var url = document.getElementById("url_textbox").value;
-      chrome.scripting.executeScript({
+  function onDarkModeToggle() {
+    var checked = doc.getElementById("darkModeToggle").checked;
+    if (checked) {
+      scripting.executeScript({
         target: { tabId: tabId, allFrames: true },
-        func: changeImg,
-        args: [url],
+        files: ["js/darkMode.js"],
       });
-      chrome.storage.sync.set({backgroundImg: url});
+    } else {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        files: ["js/undoDarkMode.js"],
+      });
+    }
+    storage.set({ darkMode: checked });
+  }
+
+  function onBackgroundClick() {
+    var url = doc.getElementById("url_textbox").value;
+    scripting.executeScript({
+      target: { tabId: tabId, allFrames: true },
+      func: function (input) {
+        doc.body.style.backgroundImage = "url('" + input + "')";
+        doc.body.style.backgroundRepeat = "no-repeat";
+        doc.body.style.backgroundSize = "contain";
+      },
+      args: [url],
     });
+    storage.set({ backgroundImg: url });
+  }
+
+  function onMenuClick() {
+    scripting.executeScript({
+      target: { tabId: tabId, allFrames: true },
+      files: ["js/sideMenu.js"],
+    });
+  }
+
+  // function colorChoice() {
+  //   var x = document.getElementById("colorpicker").value;
+  //   document.body.style.backgroundColor = x;
+  // }
+
+  return {
+    onDarkModeToggle: onDarkModeToggle,
+    onBackgroundClick: onBackgroundClick,
+    onMenuClick: onMenuClick,
+    init:init
+  };
 }
 
-function editMenuBar() {
-	document
-		.getElementById("sideMenuButton")
-		.addEventListener("click", function() {
-			chrome.scripting.executeScript({
-				target: {tabId: tabId, allFrames: true},
-				files: ["js/sideMenu.js"],
-			});
-
-		});
-}
-
-function colorChoice(){
-    var x = document.getElementById("colorpicker").value;
-    document.body.style.backgroundColor = x;
+// testing
+if (typeof exports !== "undefined") {
+  module.exports = popup;
+} else {
+  popup(chrome.tabs, chrome.storage.sync, chrome.scripting, document).init();
 }
