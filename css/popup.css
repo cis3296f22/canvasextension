@@ -77,12 +77,80 @@ h1 {
   color: #fff;
 }
 
-.sideMenu{
+.sideMenu1{ /*Account */
   display: flex;
   position:absolute;
   height: 30px;
+  width: 350px;  
   top: 270px;
   margin-top: 40px;
+}
+
+.sideMenu2{/*Calendar */
+  display: flex;
+  position:absolute;
+  height: 30px;
+  width: 350px;  
+  top: 270px;
+  margin-top: 40px;
+  margin-left: 145px;
+}
+
+.sideMenu3{/*Commons */
+  display: flex;
+  position:absolute;
+  height: 30px;
+  width: 350px;  
+  top: 270px;
+  margin-top: 75px;
+}
+
+.sideMenu4{/*Courses */
+  display: flex;
+  position:absolute;
+  height: 30px;
+  width: 350px;  
+  top: 270px;
+  margin-top: 75px;
+  margin-left: 145px;
+}
+
+.sideMenu5{/*Groups */
+  display: flex;
+  position:absolute;
+  height: 30px;
+  width: 350px;  
+  top: 270px;
+  margin-top: 110px;
+}
+
+.sideMenu6{/*Help */
+  display: flex;
+  position:absolute;
+  height: 30px;
+  width: 350px;  
+  top: 270px;
+  margin-top: 110px;
+  margin-left: 145px;
+}
+
+.sideMenu7{/*History */
+  display: flex;
+  position:absolute;
+  height: 30px;
+  width: 350px;  
+  top: 270px;
+  margin-top: 145px;
+}
+
+.sideMenu8{/*Inbox */
+  display: flex;
+  position:absolute;
+  height: 30px;
+  width: 350px;  
+  top: 270px;
+  margin-top: 145px;
+  margin-left: 145px;
 }
 
 .color-container{
@@ -90,7 +158,7 @@ h1 {
   position:absolute;
   height: 30px;
   top: 300px;
-  margin-top: 80px;
+  margin-top: 200px;
 }
 
 .sideMenuLabel{

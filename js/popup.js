@@ -14,7 +14,14 @@ function popup(tabs, storage, scripting, doc) {
       .getElementById("backgroundButton")
       .addEventListener("click", onBackgroundClick);
 
-    doc.getElementById("sideMenuButton").addEventListener("click", onMenuClick);
+    doc.getElementById("sideMenuButton1").addEventListener("click", rmAccountClick);
+    doc.getElementById("sideMenuButton2").addEventListener("click", rmCalendarClick);
+    doc.getElementById("sideMenuButton3").addEventListener("click", rmCommonsClick);
+    doc.getElementById("sideMenuButton4").addEventListener("click", rmCoursesClick);
+    doc.getElementById("sideMenuButton5").addEventListener("click", rmGroupsClick);
+    doc.getElementById("sideMenuButton6").addEventListener("click", rmHelpClick);
+    doc.getElementById("sideMenuButton7").addEventListener("click", rmHistoryClick);
+    doc.getElementById("sideMenuButton8").addEventListener("click", rmInboxClick);
 
     doc
       .getElementById("darkModeToggle")
@@ -34,12 +41,16 @@ function popup(tabs, storage, scripting, doc) {
     if (checked) {
       scripting.executeScript({
         target: { tabId: tabId, allFrames: true },
-        files: ["js/darkMode.js"],
+        func: function(){
+          document.querySelector("html").style.filter = "invert(1) hue-rotate(180deg)";
+        }
       });
     } else {
       scripting.executeScript({
         target: { tabId: tabId, allFrames: true },
-        files: ["js/undoDarkMode.js"],
+        func: function(){
+          document.querySelector("html").style.filter = "";
+        }
       });
     }
     storage.set({ darkMode: checked });
@@ -59,10 +70,84 @@ function popup(tabs, storage, scripting, doc) {
     storage.set({ backgroundImg: url });
   }
 
-  function onMenuClick() {
+  function rmHistoryClick() {
     scripting.executeScript({
       target: { tabId: tabId, allFrames: true },
-      files: ["js/sideMenu.js"],
+      func: function(){
+        var meunList = document.getElementById("global_nav_history_link")
+        meunList.remove();
+      }
+    });
+  }
+
+  function rmHelpClick(){
+    scripting.executeScript({
+      target: { tabId: tabId, allFrames: true },
+      func: function(){
+        var meunList = document.getElementById("global_nav_help_link")
+        meunList.remove();
+      }
+    });
+  }
+
+  function rmCommonsClick(){
+    scripting.executeScript({
+      target: { tabId: tabId, allFrames: true },
+      func: function(){
+        var meunList = document.getElementById("context_external_tool_9_menu_item")
+        meunList.remove();
+      }
+    });
+  }
+
+  function rmInboxClick(){
+    scripting.executeScript({
+      target: { tabId: tabId, allFrames: true },
+      func: function(){
+        var meunList = document.getElementById("global_nav_conversations_link")
+        meunList.remove();
+      }
+    });
+  }
+
+  function rmCalendarClick(){
+    scripting.executeScript({
+      target: { tabId: tabId, allFrames: true },
+      func: function(){
+        var meunList = document.getElementById("global_nav_calendar_link")
+        meunList.remove();
+      }
+    });
+  }
+
+  function rmGroupsClick(){
+    scripting.executeScript({
+      target: { tabId: tabId, allFrames: true },
+      func: function(){
+        var meunList = document.getElementById("global_nav_groups_link")
+        meunList.remove();
+      }
+    });
+  }
+
+
+  function rmCoursesClick(){
+    scripting.executeScript({
+      target: { tabId: tabId, allFrames: true },
+      func: function(){
+        var meunList = document.getElementById("global_nav_courses_link")
+        meunList.remove();
+      }
+    });
+  }
+
+  function rmAccountClick(){
+    scripting.executeScript({
+      target: { tabId: tabId, allFrames: true },
+      func: function(){
+        var meunList = document.getElementById("global_nav_profile_link")
+        meunList.remove();
+      }
     });
   }
 
