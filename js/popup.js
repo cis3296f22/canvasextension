@@ -42,14 +42,14 @@ function popup(tabs, storage, scripting, doc) {
       scripting.executeScript({
         target: { tabId: tabId, allFrames: true },
         func: function(){
-          document.querySelector("html").style.filter = "invert(1) hue-rotate(180deg)";
+          doc.querySelector("html").style.filter = "invert(1) hue-rotate(180deg)";
         }
       });
     } else {
       scripting.executeScript({
         target: { tabId: tabId, allFrames: true },
         func: function(){
-          document.querySelector("html").style.filter = "";
+          doc.querySelector("html").style.filter = "";
         }
       });
     }
@@ -130,7 +130,6 @@ function popup(tabs, storage, scripting, doc) {
     });
   }
 
-
   function rmCoursesClick(){
     scripting.executeScript({
       target: { tabId: tabId, allFrames: true },
@@ -159,7 +158,6 @@ function popup(tabs, storage, scripting, doc) {
   return {
     onDarkModeToggle: onDarkModeToggle,
     onBackgroundClick: onBackgroundClick,
-    onMenuClick: onMenuClick,
     init:init
   };
 }
