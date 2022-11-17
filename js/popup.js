@@ -22,6 +22,7 @@ function popup(tabs, storage, scripting, doc) {
     doc.getElementById("sideMenuButton6").addEventListener("click", rmHelpClick);
     doc.getElementById("sideMenuButton7").addEventListener("click", rmHistoryClick);
     doc.getElementById("sideMenuButton8").addEventListener("click", rmInboxClick);
+    doc.getElementById("colorPicker").addEventListener("click", colorChoice);
 
     doc
       .getElementById("darkModeToggle")
@@ -150,10 +151,10 @@ function popup(tabs, storage, scripting, doc) {
     });
   }
 
-  // function colorChoice() {
-  //   var x = document.getElementById("colorpicker").value;
-  //   document.body.style.backgroundColor = x;
-  // }
+  function colorChoice() {
+     let color = document.getElementById('chooser').value;
+     document.body.style.backgroundColor = color;
+  }
 
   return {
     onDarkModeToggle: onDarkModeToggle,
