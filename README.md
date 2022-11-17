@@ -6,7 +6,8 @@ This is a Chrome extension that upgrades the user experience when using Canvas. 
 # How to install
 
 -First, download the latest source code under one directory.
--In the chrome browser, find your "Manage Extensions menu" while clicking the puzzle piece in the top right hand corner of your Chrome web browser, or Google search this address chrome://extensions to go to my Quora profile. 
+-In the chrome browser, find your "Manage Extensions menu" while clicking the puzzle piece in the top right hand corner of your Chrome web browser, or Google search this address: <br>
+**chrome://extensions**
 
 -Next, **enable developer mode** by clicking the toggle switch next to 'Developer Mode' at the top right corner of the browser page.
 -Finally, click the **'Load unpacked'** button near the top left corner of the browser page and select the extension's directory/folder.
