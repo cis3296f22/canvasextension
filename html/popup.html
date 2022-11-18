@@ -30,36 +30,76 @@
 				</div>
 
 				
-				<div class="color-container" >
-					<button onclick="colorPicker()" >Change Color</button>
-					<label for="colorpicker">Color Picker:</label>
-					<input type="color" id="colorpicker" value="#0000ff">
-					
-				</div>
+
+
 				<label class = "sideMenuLabel" style="font-size:20px;" for = "BackgroundChange"> Hide Side-Menu Items: </label>
+				<div class="color-container" >
+					<button id="colorPicker">Make Color</button>
+					<input type="color" value="#0000ff" id="chooser">
+				</div>
 				<div class="sideMenu1">
-					<button id="sideMenuButton1">Remove 'Account'</button>
+					<label class="toggle">
+						<input id= "sideMenuButton1" class="toggle-checkbox" type="checkbox" >
+						Remove Account
+						<div class="toggle-switch"></div>
+						<span class="darkmodetoggle-label">	</span>
+					</label>
 				</div>
 				<div class = "sideMenu2">
-					<button id="sideMenuButton2">Remove 'Calendar'</button>
+					<label class="toggle">
+						<input id= "sideMenuButton2" class="toggle-checkbox" type="checkbox" >
+						Remove Calendar
+						<div class="toggle-switch"></div>
+						<span class="darkmodetoggle-label">	</span>
+					</label>
 				</div>
 				<div class = "sideMenu3">
-					<button id="sideMenuButton3">Remove 'Commons'</button>
+					<label class="toggle">
+						<input id= "sideMenuButton3" class="toggle-checkbox" type="checkbox" >
+						Remove Commons
+						<div class="toggle-switch"></div>
+						<span class="darkmodetoggle-label">	</span>
+					</label>
 				</div>
 				<div class = "sideMenu4">
-					<button id="sideMenuButton4">Remove 'Courses'</button>
+					<label class="toggle">
+						<input id= "sideMenuButton4" class="toggle-checkbox" type="checkbox" >
+						Remove Courses
+						<div class="toggle-switch"></div>
+						<span class="darkmodetoggle-label">	</span>
+					</label>
 				</div>
 				<div class = "sideMenu5">
-					<button id="sideMenuButton5">Remove 'Groups'</button>
+					<label class="toggle">
+						<input id= "sideMenuButton5" class="toggle-checkbox" type="checkbox" >
+						Remove Groups
+						<div class="toggle-switch"></div>
+						<span class="darkmodetoggle-label">	</span>
+					</label>
 				</div>
 				<div class = "sideMenu6">
-					<button id="sideMenuButton6">Remove 'Help'</button>
+					<label class="toggle">
+						<input id= "sideMenuButton6" class="toggle-checkbox" type="checkbox" >
+						Remove Help
+						<div class="toggle-switch"></div>
+						<span class="darkmodetoggle-label">	</span>
+					</label>
 				</div>
 				<div class = "sideMenu7">
-					<button id="sideMenuButton7">Remove 'History'</button>
+					<label class="toggle">
+						<input id= "sideMenuButton7" class="toggle-checkbox" type="checkbox" >
+						Remove History
+						<div class="toggle-switch"></div>
+						<span class="darkmodetoggle-label">	</span>
+					</label>
 				</div>
 				<div class = "sideMenu8">
-					<button id="sideMenuButton8">Remove 'Inbox'</button>
+					<label class="toggle">
+						<input id= "sideMenuButton8" class="toggle-checkbox" type="checkbox" >
+						Remove Inbox
+						<div class="toggle-switch"></div>
+						<span class="darkmodetoggle-label">	</span>
+					</label>
 				</div>
             </div>
         </div>
