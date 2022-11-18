@@ -27,12 +27,30 @@ function popup(tabs, storage, scripting, doc) {
       .getElementById("darkModeToggle")
       .addEventListener("click", onDarkModeToggle, false);
 
-    storage.get(["darkMode", "backgroundImg"], function (result) {
+    storage.get(["darkMode", "backgroundImg", "rmHistory", "rmHelp", "rmCommons", "rmInbox", "rmCalendar", "rmGroups", "rmCourses", "rmAccount"],
+	 function (result) {
       var backgroundTextBox = doc.getElementById("url_textbox");
       var darkModeToggle = doc.getElementById("darkModeToggle");
+	  var history = doc.getElementById("sideMenuButton7");
+	  var help = doc.getElementById("sideMenuButton6");
+	  var commons = doc.getElementById("sideMenuButton3");
+	  var inbox = doc.getElementById("sideMenuButton8");
+	  var calendar = doc.getElementById("sideMenuButton2");
+	  var groups = doc.getElementById("sideMenuButton5");
+	  var courses = doc.getElementById("sideMenuButton4");
+	  var account = doc.getElementById("sideMenuButton1");
+	  
 
       darkModeToggle.checked = result.darkMode;
       backgroundTextBox.value = result.backgroundImg;
+	  history.checked = result.rmHistory;
+	  help.checked = result.rmHelp;
+	  commons.checked = result.rmCommons;
+	  inbox.checked = result.rmInbox;
+	  calendar.checked = result.rmCalendar;
+	  groups.checked = result.rmGroups;
+	  courses.checked = result.rmCourses;
+	  account.checked = result.rmAccount;
     });
   }
 
@@ -71,83 +89,174 @@ function popup(tabs, storage, scripting, doc) {
   }
 
   function rmHistoryClick() {
-    scripting.executeScript({
-      target: { tabId: tabId, allFrames: true },
-      func: function(){
-        var meunList = document.getElementById("global_nav_history_link")
-        meunList.remove();
-      }
-    });
+	var checked = doc.getElementById("sideMenuButton7").checked;
+    if (checked) {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+			var meunList = document.getElementById("global_nav_history_link")
+			meunList.remove();
+        }
+      });
+    } else {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+          //TODO: add option back
+        }
+      });
+    }
+    storage.set({ rmHistory: checked });
   }
+    
+	
+
 
   function rmHelpClick(){
-    scripting.executeScript({
-      target: { tabId: tabId, allFrames: true },
-      func: function(){
-        var meunList = document.getElementById("global_nav_help_link")
-        meunList.remove();
-      }
-    });
+    var checked = doc.getElementById("sideMenuButton6").checked;
+    if (checked) {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+			var meunList = document.getElementById("global_nav_help_link")
+			meunList.remove();
+        }
+      });
+    } else {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+          //TODO: add option back
+        }
+      });
+    }
+    storage.set({ rmHelp: checked });
   }
 
   function rmCommonsClick(){
-    scripting.executeScript({
-      target: { tabId: tabId, allFrames: true },
-      func: function(){
-        var meunList = document.getElementById("context_external_tool_9_menu_item")
-        meunList.remove();
-      }
-    });
+    var checked = doc.getElementById("sideMenuButton3").checked;
+    if (checked) {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+			var meunList = document.getElementById("context_external_tool_9_menu_item")
+			meunList.remove();
+        }
+      });
+    } else {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+          //TODO: add option back
+        }
+      });
+    }
+    storage.set({ rmCommons: checked });
   }
 
   function rmInboxClick(){
-    scripting.executeScript({
-      target: { tabId: tabId, allFrames: true },
-      func: function(){
-        var meunList = document.getElementById("global_nav_conversations_link")
-        meunList.remove();
-      }
-    });
+    var checked = doc.getElementById("sideMenuButton8").checked;
+    if (checked) {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+			var meunList = document.getElementById("global_nav_conversations_link")
+			meunList.remove();
+        }
+      });
+    } else {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+          //TODO: add option back
+        }
+      });
+    }
+    storage.set({ rmInbox: checked });
   }
 
   function rmCalendarClick(){
-    scripting.executeScript({
-      target: { tabId: tabId, allFrames: true },
-      func: function(){
-        var meunList = document.getElementById("global_nav_calendar_link")
-        meunList.remove();
-      }
-    });
+    var checked = doc.getElementById("sideMenuButton2").checked;
+    if (checked) {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+			var meunList = document.getElementById("global_nav_calendar_link")
+			meunList.remove();
+        }
+      });
+    } else {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+          //TODO: add option back
+        }
+      });
+    }
+    storage.set({ rmCalendar: checked });
   }
 
   function rmGroupsClick(){
-    scripting.executeScript({
-      target: { tabId: tabId, allFrames: true },
-      func: function(){
-        var meunList = document.getElementById("global_nav_groups_link")
-        meunList.remove();
-      }
-    });
+    var checked = doc.getElementById("sideMenuButton5").checked;
+    if (checked) {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+			var meunList = document.getElementById("global_nav_groups_link")
+			meunList.remove();
+        }
+      });
+    } else {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+          //TODO: add option back
+        }
+      });
+    }
+    storage.set({ rmGroups: checked });
   }
 
   function rmCoursesClick(){
-    scripting.executeScript({
-      target: { tabId: tabId, allFrames: true },
-      func: function(){
-        var meunList = document.getElementById("global_nav_courses_link")
-        meunList.remove();
-      }
-    });
+    var checked = doc.getElementById("sideMenuButton4").checked;
+    if (checked) {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+			var meunList = document.getElementById("global_nav_courses_link")
+			meunList.remove();
+        }
+      });
+    } else {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+          //TODO: add option back
+        }
+      });
+    }
+    storage.set({ rmCourses: checked });
   }
 
   function rmAccountClick(){
-    scripting.executeScript({
-      target: { tabId: tabId, allFrames: true },
-      func: function(){
-        var meunList = document.getElementById("global_nav_profile_link")
-        meunList.remove();
-      }
-    });
+    var checked = doc.getElementById("sideMenuButton1").checked;
+    if (checked) {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+			var meunList = document.getElementById("global_nav_profile_link")
+			meunList.remove();
+        }
+      });
+    } else {
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function(){
+          //TODO: add option back
+        }
+      });
+    }
+    storage.set({ rmAccount: checked });
   }
 
   // function colorChoice() {
