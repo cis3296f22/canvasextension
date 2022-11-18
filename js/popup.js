@@ -42,14 +42,14 @@ function popup(tabs, storage, scripting, doc) {
       scripting.executeScript({
         target: { tabId: tabId, allFrames: true },
         func: function(){
-          doc.querySelector("html").style.filter = "invert(1) hue-rotate(180deg)";
+          document.querySelector("html").style.filter = "invert(1) hue-rotate(180deg)";
         }
       });
     } else {
       scripting.executeScript({
         target: { tabId: tabId, allFrames: true },
         func: function(){
-          doc.querySelector("html").style.filter = "";
+          document.querySelector("html").style.filter = "";
         }
       });
     }
@@ -61,9 +61,9 @@ function popup(tabs, storage, scripting, doc) {
     scripting.executeScript({
       target: { tabId: tabId, allFrames: true },
       func: function (input) {
-        doc.body.style.backgroundImage = "url('" + input + "')";
-        doc.body.style.backgroundRepeat = "no-repeat";
-        doc.body.style.backgroundSize = "contain";
+        document.body.style.backgroundImage = "url('" + input + "')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "contain";
       },
       args: [url],
     });
@@ -158,7 +158,15 @@ function popup(tabs, storage, scripting, doc) {
   return {
     onDarkModeToggle: onDarkModeToggle,
     onBackgroundClick: onBackgroundClick,
-    init:init
+    init:init,
+    rmAccountClick: rmAccountClick,
+    rmCalendarClick: rmCalendarClick,
+    rmCommonsClick: rmCommonsClick,
+    rmCoursesClick: rmCoursesClick,
+    rmGroupsClick: rmGroupsClick,
+    rmHelpClick: rmHelpClick,
+    rmHistoryClick: rmHistoryClick,
+    rmInboxClick: rmInboxClick,
   };
 }
 
