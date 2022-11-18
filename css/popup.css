@@ -153,12 +153,13 @@ h1 {
   margin-left: 145px;
 }
 
-.color-container{
+.color-container{/*Color picker */
   display: flex;
   position:absolute;
   height: 30px;
-  top: 300px;
-  margin-top: 200px;
+  width: 350px;
+  top: 170px;
+  margin-left: 250px;
 }
 
 .sideMenuLabel{
