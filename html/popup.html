@@ -1,110 +1,146 @@
 <html>
-	<head>
-		<title>Welcome to Canvas</title>
-		<link href="../css/popup.css" rel="stylesheet"/>
-		<link href="../css/toggle.css" rel="stylesheet"/>
-	</head>
+  <head>
+    <title>Welcome to Canvas</title>
+    <link href="../css/popup.css" rel="stylesheet" />
+    <link href="../css/toggle.css" rel="stylesheet" />
+  </head>
   <body>
-	<div class="main">
-		<div class="header">
-			<img src="../pics/canvas_logo.png" alt="Canvas logo: Circle with concentric dots"
-			height="50" width="50"
-			style = "margin-left: 10px; margin-top: 10px;">
-			<h1>Welcome to Canvas</h1>
-		</div>
-		<div class="options">
-            <div class="options-left">
-                <div class="option-container">
-					<label style="font-size:20px;" for = "DarkMode"> Dark Mode: </label>
-					<label class="toggle">
-						<input id= "darkModeToggle" class="toggle-checkbox" type="checkbox" >
-						<div class="toggle-switch"></div>
-						<span class="darkmodetoggle-label">	</span>
-					</label>
-                </div>
-				
-				<label class = "backgroundLabel" style="font-size:20px;" for = "BackgroundChange"> Change Background: </label>
-				<div class="background-container" >
-					<button id="backgroundButton">change background</button>	
-					<input type="url" name="" id="url_textbox" placeholder="Enter image url here">
-				</div>
-
-				
-
-
-				<label class = "sideMenuLabel" style="font-size:20px;" for = "BackgroundChange"> Hide Side-Menu Items: </label>
-				<div class="color-container" >
-					<button id="colorPicker">Make Color</button>
-					<input type="color" value="#0000ff" id="chooser">
-				</div>
-				<div class="sideMenu1">
-					<label class="toggle">
-						<input id= "sideMenuButton1" class="toggle-checkbox" type="checkbox" >
-						Remove Account
-						<div class="toggle-switch"></div>
-						<span class="darkmodetoggle-label">	</span>
-					</label>
-				</div>
-				<div class = "sideMenu2">
-					<label class="toggle">
-						<input id= "sideMenuButton2" class="toggle-checkbox" type="checkbox" >
-						Remove Calendar
-						<div class="toggle-switch"></div>
-						<span class="darkmodetoggle-label">	</span>
-					</label>
-				</div>
-				<div class = "sideMenu3">
-					<label class="toggle">
-						<input id= "sideMenuButton3" class="toggle-checkbox" type="checkbox" >
-						Remove Commons
-						<div class="toggle-switch"></div>
-						<span class="darkmodetoggle-label">	</span>
-					</label>
-				</div>
-				<div class = "sideMenu4">
-					<label class="toggle">
-						<input id= "sideMenuButton4" class="toggle-checkbox" type="checkbox" >
-						Remove Courses
-						<div class="toggle-switch"></div>
-						<span class="darkmodetoggle-label">	</span>
-					</label>
-				</div>
-				<div class = "sideMenu5">
-					<label class="toggle">
-						<input id= "sideMenuButton5" class="toggle-checkbox" type="checkbox" >
-						Remove Groups
-						<div class="toggle-switch"></div>
-						<span class="darkmodetoggle-label">	</span>
-					</label>
-				</div>
-				<div class = "sideMenu6">
-					<label class="toggle">
-						<input id= "sideMenuButton6" class="toggle-checkbox" type="checkbox" >
-						Remove Help
-						<div class="toggle-switch"></div>
-						<span class="darkmodetoggle-label">	</span>
-					</label>
-				</div>
-				<div class = "sideMenu7">
-					<label class="toggle">
-						<input id= "sideMenuButton7" class="toggle-checkbox" type="checkbox" >
-						Remove History
-						<div class="toggle-switch"></div>
-						<span class="darkmodetoggle-label">	</span>
-					</label>
-				</div>
-				<div class = "sideMenu8">
-					<label class="toggle">
-						<input id= "sideMenuButton8" class="toggle-checkbox" type="checkbox" >
-						Remove Inbox
-						<div class="toggle-switch"></div>
-						<span class="darkmodetoggle-label">	</span>
-					</label>
-				</div>
-            </div>
+    <div class="main">
+      <div class="header">
+        <img
+          src="../pics/canvas_logo.png"
+          alt="Canvas logo: Circle with concentric dots"
+        />
+        <h1>Welcome to Canvas</h1>
+      </div>
+      <div class="options">
+        <div class="dark-mode">
+          <label>Dark Mode: </label>
+          <label class="toggle">
+            <input
+              id="darkModeToggle"
+              class="toggle-checkbox"
+              type="checkbox"
+            />
+            <div class="toggle-switch"></div>
+          </label>
         </div>
-	<script src="../js/popup.js"></script>				
+        <div class="background-container">
+          <label class="background-label">Change Background: </label>
+          <button id="backgroundButton">change background</button>
+          <input
+            type="url"
+            name=""
+            id="url_textbox"
+            placeholder="Enter image url here"
+          />
+        </div>
+        <div class="color-container">
+          <label class="color-label">Change Options Color: </label>
+          <button id="colorPicker">Make Color</button>
+          <input type="color" value="#0000ff" id="chooser" />
+        </div>
+        <div class="side-menu">
+          <label class="side-menu-label">Side Menu: </label>
+          <div class="sideMenu1">
+            <label class="toggle">
+              <input
+                id="sideMenuButton1"
+                class="toggle-checkbox"
+                type="checkbox"
+              />
+              Account
+              <div class="toggle-switch"></div>
+              <span class="darkmodetoggle-label"> </span>
+            </label>
+          </div>
+          <div class="sideMenu2">
+            <label class="toggle">
+              <input
+                id="sideMenuButton2"
+                class="toggle-checkbox"
+                type="checkbox"
+              />
+              Calendar
+              <div class="toggle-switch"></div>
+              <span class="darkmodetoggle-label"> </span>
+            </label>
+          </div>
+          <div class="sideMenu3">
+            <label class="toggle">
+              <input
+                id="sideMenuButton3"
+                class="toggle-checkbox"
+                type="checkbox"
+              />
+              Commons
+              <div class="toggle-switch"></div>
+              <span class="darkmodetoggle-label"> </span>
+            </label>
+          </div>
+          <div class="sideMenu4">
+            <label class="toggle">
+              <input
+                id="sideMenuButton4"
+                class="toggle-checkbox"
+                type="checkbox"
+              />
+              Courses
+              <div class="toggle-switch"></div>
+              <span class="darkmodetoggle-label"> </span>
+            </label>
+          </div>
+          <div class="sideMenu5">
+            <label class="toggle">
+              <input
+                id="sideMenuButton5"
+                class="toggle-checkbox"
+                type="checkbox"
+              />
+              Groups
+              <div class="toggle-switch"></div>
+              <span class="darkmodetoggle-label"> </span>
+            </label>
+          </div>
+          <div class="sideMenu6">
+            <label class="toggle">
+              <input
+                id="sideMenuButton6"
+                class="toggle-checkbox"
+                type="checkbox"
+              />
+              Help
+              <div class="toggle-switch"></div>
+              <span class="darkmodetoggle-label"> </span>
+            </label>
+          </div>
+          <div class="sideMenu7">
+            <label class="toggle">
+              <input
+                id="sideMenuButton7"
+                class="toggle-checkbox"
+                type="checkbox"
+              />
+              History
+              <div class="toggle-switch"></div>
+              <span class="darkmodetoggle-label"> </span>
+            </label>
+          </div>
+          <div class="sideMenu8">
+            <label class="toggle">
+              <input
+                id="sideMenuButton8"
+                class="toggle-checkbox"
+                type="checkbox"
+              />
+              Inbox
+              <div class="toggle-switch"></div>
+              <span class="darkmodetoggle-label"> </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/popup.js"></script>
   </body>
 </html>
-
-</script>
