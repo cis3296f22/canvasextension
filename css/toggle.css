@@ -11,7 +11,7 @@
   height: 32px;
   position: relative;
   vertical-align: middle;
-  transition: background 0.25s;
+  transition: 0.25s;
 }
 .toggle-switch:before,
 .toggle-switch:after {

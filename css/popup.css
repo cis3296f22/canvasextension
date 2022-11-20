@@ -1,18 +1,12 @@
 body {
-  width: 400px;
+  width: 500px;
   height: 100%;
   font-family: "Rubik", sans-serif;
+  font-size: 12px;
   color: #e2e2e2;
   background: #161616;
-  margin-top: 0%;
   margin-left: 0%;
-}
-
-/* top header container */
-.header{
-  width: 410px;
-  height: 70px;
-  background-color: rgb(228, 64, 31);
+  margin-top: auto;
 }
 
 h1 {
@@ -23,258 +17,66 @@ h1 {
   top: 10px;
 }
 
-.option input {
-  display: none;
+.header {
+  width: 510px;
+  height: 70px;
+  background-color: rgb(228, 64, 31);
+  font-size: 20px;
 }
+
+.header img {
+  height: 50px;
+  width: 50px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
 .options {
   display: flex;
   position:absolute;
   top: 100px;
   margin-left: 10px;
+  font-size: 10px;
 }
 
-/* moving the dark mode label */
-.darkmodetoggle-label{
-  font-size: 18px;
-  position:absolute;
-  top: 6px;
-  width: 100px;
-  left: 75px;
+.dark-mode {
+  margin-top: 10px;
 }
 
-.backgroundLabel{
-  font-size: 18px;
-  position:absolute;
+.background-label{
+  font-size: 12px;
   top: 120px;
   width: 100px;
 }
 
-/* moving background option */ 
 .background-container{
-  display: flex;
-  position:absolute;
+  display: inline-block;
+  position: absolute;
   height: 30px;
   top: 170px;
 }
 
-
-.options input:nth-of-type(1).checked ~ .slider .sliderknob {
-  background-color: #8dd28d;
-}
-.options input:nth-of-type(2).checked ~ .slider .sliderknob {
-  transform: translate(30px);
-  background-color: #727272;
-}
-
-.options-left {
-  margin-right: 12px;
-}
-.options-left,
-.options-right {
-  width: 50%;
-}
-.option-background {
-  color: #fff;
-}
-
-.sideMenu1{ /*Account */
-  display: flex;
-  position:absolute;
-  height: 30px;
-  width: 350px;  
+.side-menu {
+  display: inline-block;
+  position: absolute;
   top: 270px;
-  margin-top: 40px;
+  margin-left: auto;
+  
 }
 
-.sideMenu2{/*Calendar */
+.side-menu label {
+  font-size: 13px;
   display: flex;
-  position:absolute;
-  height: 30px;
-  width: 350px;  
-  top: 270px;
-  margin-top: 40px;
-  margin-left: 145px;
 }
 
-.sideMenu3{/*Commons */
+.color-container{
   display: flex;
-  position:absolute;
-  height: 30px;
-  width: 350px;  
-  top: 270px;
-  margin-top: 75px;
-}
-
-.sideMenu4{/*Courses */
-  display: flex;
-  position:absolute;
-  height: 30px;
-  width: 350px;  
-  top: 270px;
-  margin-top: 75px;
-  margin-left: 145px;
-}
-
-.sideMenu5{/*Groups */
-  display: flex;
-  position:absolute;
-  height: 30px;
-  width: 350px;  
-  top: 270px;
-  margin-top: 110px;
-}
-
-.sideMenu6{/*Help */
-  display: flex;
-  position:absolute;
-  height: 30px;
-  width: 350px;  
-  top: 270px;
-  margin-top: 110px;
-  margin-left: 145px;
-}
-
-.sideMenu7{/*History */
-  display: flex;
-  position:absolute;
-  height: 30px;
-  width: 350px;  
-  top: 270px;
-  margin-top: 145px;
-}
-
-.sideMenu8{/*Inbox */
-  display: flex;
-  position:absolute;
-  height: 30px;
-  width: 350px;  
-  top: 270px;
-  margin-top: 145px;
-  margin-left: 145px;
-}
-
-.color-container{/*Color picker */
-  display: flex;
-  position:absolute;
   height: 30px;
   width: 350px;
-  top: 170px;
-  margin-left: 250px;
 }
 
-.sideMenuLabel{
-  font-size: 18px;
-  position:absolute;
-  top: 240px;
+.color-label{
+  display: flex;
+  font-size: 12px;
   width: 100px;
-}
-
-.button {
-  align-items: center;
-  appearance: none;
-  background-clip: padding-box;
-  background-color: initial;
-  background-image: none;
-  border-style: none;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  flex-direction: row;
-  flex-shrink: 0;
-  font-family: Eina01,sans-serif;
-  font-size: 16px;
-  font-weight: 800;
-  justify-content: center;
-  line-height: 24px;
-  margin: 0;
-  min-height: 64px;
-  outline: none;
-  overflow: visible;
-  padding: 19px 26px;
-  pointer-events: auto;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-transform: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  width: auto;
-  word-break: keep-all;
-  z-index: 0;
-}
-
-@media (min-width: 768px) {
-  .button {
-    padding: 19px 32px;
-  }
-}
-
-.button:before,
-.button:after {
-  border-radius: 80px;
-}
-
-.button:before {
-  background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
-  content: "";
-  display: block;
-  height: 100%;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: -2;
-}
-
-.button:after {
-  background-color: initial;
-  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
-  bottom: 4px;
-  content: "";
-  display: block;
-  left: 4px;
-  overflow: hidden;
-  position: absolute;
-  right: 4px;
-  top: 4px;
-  transition: all 100ms ease-out;
-  z-index: -1;
-}
-
-.button:hover:not(:disabled):before {
-  background: linear-gradient(92.83deg, rgb(255, 116, 38) 0%, rgb(249, 58, 19) 100%);
-}
-
-.button:hover:not(:disabled):after {
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  transition-timing-function: ease-in;
-  opacity: 0;
-}
-
-.button:active:not(:disabled) {
-  color: #ccc;
-}
-
-.button:active:not(:disabled):before {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
-}
-
-.button:active:not(:disabled):after {
-  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
-  bottom: 4px;
-  left: 4px;
-  right: 4px;
-  top: 4px;
-}
-
-.button:disabled {
-  cursor: default;
-  opacity: .24;
 }
