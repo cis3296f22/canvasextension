@@ -175,7 +175,7 @@ test("set background", () => {
 });
 
 test("test remove click", () => {
-  var mockElements = [];
+  var mockElements = []; 
   mockDocument.getElementById.mockImplementation((id) => {
     var element = {
       addEventListener: jest.fn(),
@@ -183,7 +183,7 @@ test("test remove click", () => {
     };
 
     if (id.startsWith("sideMenuButton")) {
-      mockElements.push(element);
+      mockElements.push(element); // save only side menu buttons toggles
     }
 
     return element;
@@ -192,25 +192,38 @@ test("test remove click", () => {
   var p = popup(mockTabs, mockStorage, mockScripting, mockDocument);
   p.init();
 
-  // call all click functions
-  mockElements.forEach((e) => e.addEventListener.mock.calls[0][1]());
 
-  console.log(mockStorage);
+  var testIt = (navButtonId, toggleId, currentToggleValue) => {
+    // find toggle we save and call the click event
+    var elem = mockElements.find(p => p.id === toggleId);
+    elem.checked = currentToggleValue;
 
-  var testIt = (id) => {
+    expect(elem.addEventListener.mock.calls[0][0]).toEqual("click");
+    elem.addEventListener.mock.calls[0][1](); // actually call the click event handler
+
     expect(mockScripting.executeScript).toHaveBeenCalledWith({
       target: expectedTarget,
       func: expect.any(Function),
-      args: [id],
+      args: [navButtonId, currentToggleValue],
     });
   };
 
-  testIt("global_nav_profile_link");
-  testIt("global_nav_calendar_link");
-  testIt("context_external_tool_9_menu_item");
-  testIt("global_nav_courses_link");
-  testIt("global_nav_groups_link");
-  testIt("global_nav_help_link");
-  testIt("global_nav_history_link");
-  testIt("global_nav_conversations_link");
+  testIt("global_nav_profile_link", "sideMenuButton1", false);
+  testIt("global_nav_calendar_link", "sideMenuButton2", false);
+  testIt("context_external_tool_9_menu_item", "sideMenuButton3", true);
+  testIt("global_nav_courses_link", "sideMenuButton4", false);
+  testIt("global_nav_groups_link", "sideMenuButton5", true);
+  testIt("global_nav_help_link", "sideMenuButton6", false);
+  testIt("global_nav_history_link", "sideMenuButton7", false);
+  testIt("global_nav_conversations_link", "sideMenuButton8", false);
+});
+
+test("test color picker", () => {
+  mockDocument.body = {style: {}};
+  mockDocument.getElementById.mockReturnValueOnce({
+    value: "#123456",
+  });
+  var p = popup(mockTabs, mockStorage, mockScripting, mockDocument);
+  p.colorChoice();
+  expect(mockDocument.body.style.backgroundColor).toEqual("#123456");
 });

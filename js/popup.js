@@ -109,38 +109,29 @@ function popup(tabs, storage, scripting, doc) {
     button.addEventListener("click", () => {
       var checked = button.checked;
 
-      if (checked) {
-        scripting.executeScript({
-          target: { tabId: tabId, allFrames: true },
-          func: function (id) {
-            var meunList = document.getElementById(id);
-            meunList.style.display = "none";
-          },
-          args: [elementId]
-        });
-      } else {
-        scripting.executeScript({
-          target: { tabId: tabId, allFrames: true },
-          func: function (id) {
-            var meunList = document.getElementById(id);
-            meunList.style.display = null;        
-          },
-          args: [elementId]
-        });
-      }
+      scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: function (id, show) {
+          var meunList = document.getElementById(id);
+          meunList.style.display = show ? null : "none";
+        },
+        args: [elementId, checked]
+      });
+      
       storage.set({ rmHistory: checked });
     });
   }
 
   function colorChoice() {
-    let color = document.getElementById("chooser").value;
-    document.body.style.backgroundColor = color;
+    let color = doc.getElementById("chooser").value;
+    doc.body.style.backgroundColor = color;
   }
 
   return {
     onDarkModeToggle: onDarkModeToggle,
     onBackgroundClick: onBackgroundClick,
     init: init,
+    colorChoice: colorChoice,
   };
 }
 
