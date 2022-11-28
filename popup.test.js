@@ -105,14 +105,14 @@ test("popup initializes", () => {
   mockStorage.get.mock.calls[0][1]({
     backgroundImg: "https://example.com/pic.jpg",
     darkMode: true,
-    rmHistory: true,
-    rmHelp: true,
-    rmCommons: true,
-    rmInbox: true,
-    rmCalendar: false,
-    rmGroups: true,
-    rmCourses: true,
-    rmAccount: false,
+    rmHistory: false,
+    rmHelp: false,
+    rmCommons: false,
+    rmInbox: false,
+    rmCalendar: true,
+    rmGroups: false,
+    rmCourses: false,
+    rmAccount: true,
   });
 
   expect(mockElements.length).toEqual(10);

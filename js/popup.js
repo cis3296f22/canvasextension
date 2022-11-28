@@ -14,14 +14,14 @@ function popup(tabs, storage, scripting, doc) {
       .getElementById("backgroundButton")
       .addEventListener("click", onBackgroundClick);
 
-    setupNavLink("sideMenuButton1", "global_nav_profile_link");
-    setupNavLink("sideMenuButton2", "global_nav_calendar_link");
-    setupNavLink("sideMenuButton3", "context_external_tool_9_menu_item");
-    setupNavLink("sideMenuButton4", "global_nav_courses_link");
-    setupNavLink("sideMenuButton5", "global_nav_groups_link");
-    setupNavLink("sideMenuButton6", "global_nav_help_link");
-    setupNavLink("sideMenuButton7", "global_nav_history_link");
-    setupNavLink("sideMenuButton8", "global_nav_conversations_link");
+    setupNavLink("sideMenuButton1", "global_nav_profile_link", "rmAccount");
+    setupNavLink("sideMenuButton2", "global_nav_calendar_link", "rmCalendar");
+    setupNavLink("sideMenuButton3", "context_external_tool_9_menu_item", "rmCommons");
+    setupNavLink("sideMenuButton4", "global_nav_courses_link", "rmCourses");
+    setupNavLink("sideMenuButton5", "global_nav_groups_link", "rmGroups");
+    setupNavLink("sideMenuButton6", "global_nav_help_link", "rmHelp");
+    setupNavLink("sideMenuButton7", "global_nav_history_link", "rmHistory");
+    setupNavLink("sideMenuButton8", "global_nav_conversations_link", "rmInbox");
 
     doc.getElementById("colorPicker").addEventListener("click", colorChoice);
 
@@ -45,6 +45,8 @@ function popup(tabs, storage, scripting, doc) {
       (result) => {
         var backgroundTextBox = doc.getElementById("url_textbox");
         var darkModeToggle = doc.getElementById("darkModeToggle");
+
+        // TODO: move to setUpNavLink
         var account = doc.getElementById("sideMenuButton1");
         var calendar = doc.getElementById("sideMenuButton2");
         var commons = doc.getElementById("sideMenuButton3");
@@ -56,14 +58,16 @@ function popup(tabs, storage, scripting, doc) {
 
         darkModeToggle.checked = result.darkMode;
         backgroundTextBox.value = result.backgroundImg;
-        history.checked = result.rmHistory;
-        help.checked = result.rmHelp;
-        commons.checked = result.rmCommons;
-        inbox.checked = result.rmInbox;
-        calendar.checked = result.rmCalendar;
-        groups.checked = result.rmGroups;
-        courses.checked = result.rmCourses;
-        account.checked = result.rmAccount;
+
+        //TODO: move to setupNavLink
+        history.checked = !result.rmHistory;
+        help.checked = !result.rmHelp;
+        commons.checked = !result.rmCommons;
+        inbox.checked = !result.rmInbox;
+        calendar.checked = !result.rmCalendar;
+        groups.checked = !result.rmGroups;
+        courses.checked = !result.rmCourses;
+        account.checked = !result.rmAccount;
       }
     );
   }
@@ -103,22 +107,19 @@ function popup(tabs, storage, scripting, doc) {
     storage.set({ backgroundImg: url });
   }
 
-  function setupNavLink(buttonId, elementId) {
+  function setupNavLink(buttonId, elementId, storageId) {
     var button = doc.getElementById(buttonId);
-
     button.addEventListener("click", () => {
-      var checked = button.checked;
-
+    var checked = button.checked;
       scripting.executeScript({
         target: { tabId: tabId, allFrames: true },
         func: function (id, show) {
-          var meunList = document.getElementById(id);
-          meunList.style.display = show ? null : "none";
+          var menulist = document.getElementById(id);
+          menulist.style.display = show ? null : "none";
         },
         args: [elementId, checked]
       });
-      
-      storage.set({ rmHistory: checked });
+      storage.set({ [storageId] : !checked });
     });
   }
 
@@ -131,6 +132,7 @@ function popup(tabs, storage, scripting, doc) {
     onDarkModeToggle: onDarkModeToggle,
     onBackgroundClick: onBackgroundClick,
     init: init,
+    setupNavLink: setupNavLink,
     colorChoice: colorChoice,
   };
 }
