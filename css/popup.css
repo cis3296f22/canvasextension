@@ -42,11 +42,11 @@ h1 {
   width: 100px;
   white-space: nowrap;
 }
-.toggle{
+.toggle-checkbox{
   display: flex;
   position: absolute;
   top: 20px;
-  left: 300px;
+  left: 200px;
 }
 
 .backgroundLabel{
