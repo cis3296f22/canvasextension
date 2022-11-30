@@ -13,8 +13,8 @@ h1 {
   position: absolute;
   font-size: 1.5em;
   font-weight: 500;
-  left: 200px;
-  top: 10px;
+  left: 140px;
+  top: 1px;
 }
 
 .header {
@@ -41,19 +41,26 @@ h1 {
 
 .dark-mode {
   margin-top: 10px;
+  background-color: #1f1e1e;
+  width: 180px;
+  padding: 5px;
 }
 
 .background-label{
-  font-size: 12px;
   top: 120px;
   width: 100px;
+  margin-left: 5px;
+  
 }
 
 .background-container{
   display: inline-block;
   position: absolute;
   height: 30px;
-  top: 170px;
+  top: 150px;
+  background-color: #1f1e1e;
+  border: 5px;
+  margin-left: -10px;
 }
 
 .side-menu {
@@ -65,18 +72,52 @@ h1 {
 }
 
 .side-menu label {
-  font-size: 13px;
   display: flex;
 }
 
 .color-container{
   display: flex;
-  height: 30px;
-  width: 350px;
+  height: 50px;
+  width: 300px;
+  background-color: #1f1e1e;
+}
+.color-container button{
+	height: 30px;
 }
 
-.color-label{
+* {
+	box-sizing: border-box;
+  }
+  
+  .side-menu {
+	display: flex;
+  }
+  
+  /* Create two equal columns that sits next to each other */
+  .column {
+	flex: 50%;
+	background-color: #1f1e1e;
+  }
+  .column p{
+	position: relative;
+	font-size: medium;
+	padding: 5px;
+
+  }
+  .background-change{
+	font-size: medium;
+  }
+
+.side-menu-label{
+	font-size: large;
+	
+}
+.side-head{
+  top: 240px;
   display: flex;
-  font-size: 12px;
-  width: 100px;
+  position:absolute;
+  
+}
+.dark-label{
+	padding-left: 5px;
 }
