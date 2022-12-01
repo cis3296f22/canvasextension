@@ -14,7 +14,7 @@ This extension can do multiple things, such as an automatic dark mode that only 
 ```
 chrome://extensions
 ```
--Next, **enable developer mode** by clicking the toggle switch next to 'Developer Mode' at the top right corner of the browser page.
+-Next, **enable developer mode** by clicking the toggle switch next to 'Developer Mode' at the top right corner of the browser page. <br>
 -Finally, click the **'Load unpacked'** button near the top left corner of the browser page and select the extension's directory/folder.
 
 # How to run
