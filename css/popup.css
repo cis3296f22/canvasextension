@@ -41,9 +41,7 @@ h1 {
 
 .dark-mode {
   margin-top: 10px;
-  background-color: #1f1e1e;
   width: 450px;
-  padding: 5px;
 }
 .dark-label{
   font-size: 20px;
@@ -57,21 +55,29 @@ h1 {
   left: 340px;
 }
 
-.background-label{
-  top: 120px;
-  width: 100px;
-  left: 100px;
-  
-}
 
 .background-container{
   display: inline-block;
   position: absolute;
   height: 30px;
   top: 150px;
-  background-color: #1f1e1e;
   border: 5px;
   margin-left: -10px;
+}
+
+.background-label{
+  font-size: 20px;
+  
+}
+.url_textbox{
+  position: absolute;
+  left: 250px;
+  width: 70px;
+}
+.backgroundButton{
+  position: absolute;
+  top: 30px;
+  left: 333px;
 }
 
 .side-menu {
@@ -91,7 +97,6 @@ h1 {
   font-size: 20px;
   height: 50px;
   width: 450px;
-  background-color: #1f1e1e;
 }
 .colorBlock{
 	height: 30px;
@@ -110,7 +115,6 @@ h1 {
   /* Create two equal columns that sits next to each other */
   .column {
 	flex: 50%;
-	background-color: #1f1e1e;
   }
   .column p{
 	position: relative;
