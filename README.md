@@ -2,12 +2,18 @@
 
 This is a Chrome extension that upgrades the user experience when using Canvas. The extension will allow users to change the theme to dark mode, change the course name, and supply a list of all assignments due on a side panel. The product will only run when Canvas is running on Chrome. The extension should only change what the user sees on the front end.
 
+# What It Can Do
+
+This extension can do multiple things, such as an automatic dark mode that only is used in Canvas, replacing the background of Canvas webpages with a custom image (via an online image address), and hiding unused side-menu options such as 'History' and 'Help'. All of these settings are saved into the extension so that it automatically applies to the next page you enter.
+
 
 # How to install
 
 -First, download the latest source code under one directory.
--In the chrome browser, find your "Manage Extensions menu" while clicking the puzzle piece in the top right hand corner of your Chrome web browser, or Google search this address: ***chrome://extensions***
-
+-In the chrome browser, find your "Manage Extensions menu" while clicking the puzzle piece in the top right hand corner of your Chrome web browser, or Google search this address: 
+'''
+chrome://extensions
+'''
 -Next, **enable developer mode** by clicking the toggle switch next to 'Developer Mode' at the top right corner of the browser page.
 -Finally, click the **'Load unpacked'** button near the top left corner of the browser page and select the extension's directory/folder.
 
