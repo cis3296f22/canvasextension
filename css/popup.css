@@ -133,6 +133,10 @@ h1 {
 .side-head{
   top: 240px;
   display: flex;
+
   position:absolute;
   
+}
+.dark-label{
+	padding-left: 5px;
 }
