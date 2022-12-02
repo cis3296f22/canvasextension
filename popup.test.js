@@ -96,6 +96,7 @@ test("popup initializes", () => {
       "rmGroups",
       "rmCourses",
       "rmAccount",
+      "colorChoice",
     ],
     expect.any(Function)
   );
@@ -105,6 +106,7 @@ test("popup initializes", () => {
   mockStorage.get.mock.calls[0][1]({
     backgroundImg: "https://example.com/pic.jpg",
     darkMode: true,
+    colorChoice: "#123456",
     rmHistory: false,
     rmHelp: false,
     rmCommons: false,
@@ -115,7 +117,7 @@ test("popup initializes", () => {
     rmAccount: true,
   });
 
-  expect(mockElements.length).toEqual(10);
+  expect(mockElements.length).toEqual(11);
 
   expect(findMockElem("sideMenuButton1").checked).toBe(false);
   expect(findMockElem("sideMenuButton2").checked).toBe(false);
@@ -175,7 +177,7 @@ test("set background", () => {
 });
 
 test("test remove click", () => {
-  var mockElements = []; 
+  var mockElements = [];
   mockDocument.getElementById.mockImplementation((id) => {
     var element = {
       addEventListener: jest.fn(),
@@ -192,10 +194,9 @@ test("test remove click", () => {
   var p = popup(mockTabs, mockStorage, mockScripting, mockDocument);
   p.init();
 
-
   var testIt = (navButtonId, toggleId, currentToggleValue) => {
     // find toggle we save and call the click event
-    var elem = mockElements.find(p => p.id === toggleId);
+    var elem = mockElements.find((p) => p.id === toggleId);
     elem.checked = currentToggleValue;
 
     expect(elem.addEventListener.mock.calls[0][0]).toEqual("click");
@@ -219,11 +220,18 @@ test("test remove click", () => {
 });
 
 test("test color picker", () => {
-  mockDocument.body = {style: {}};
+  var p = popup(mockTabs, mockStorage, mockScripting, mockDocument);
   mockDocument.getElementById.mockReturnValueOnce({
     value: "#123456",
   });
-  var p = popup(mockTabs, mockStorage, mockScripting, mockDocument);
   p.colorChoice();
-  expect(mockDocument.body.style.backgroundColor).toEqual("#123456");
+  expect(mockScripting.executeScript.mock.calls.length).toEqual(1);
+  expect(mockScripting.executeScript).toHaveBeenCalledWith({
+    target: expectedTarget,
+    args: ["#123456"],
+    func: expect.any(Function),
+  });
+  expect(mockStorage.set).toHaveBeenCalledWith({
+    colorChoice: "#123456"
+  });
 });
