@@ -1,5 +1,14 @@
 "use strict";
 
+/** 
+ * The function used to set up and run the popup menu used when the user is editing the settings of the extension. 
+ * @constructor
+ * @param tabs - The object used to manage the tabs in the Chrome browser. 
+ * @param storage - The object used to manage the storage and saved settings of the browser. 
+ * @param scripting - The library used to run scripts in the Chrome browser.
+ * @param doc - The object used to change elements of the (Canvas) webpage.
+ * @return The functions used within the popup to be used in accordance with the extension (Another way to call of functions in js). 
+*/
 function popup(tabs, storage, scripting, doc) {
   var tabId;
   tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -9,6 +18,9 @@ function popup(tabs, storage, scripting, doc) {
 
   doc.addEventListener("DOMContentLoaded", init, false);
 
+/**
+ * The function used to initialize the popup menun with the saved settings and prepares functionality to extension menu.
+ */
   function init() {
     doc
       .getElementById("backgroundButton")
@@ -46,7 +58,6 @@ function popup(tabs, storage, scripting, doc) {
         var backgroundTextBox = doc.getElementById("url_textbox");
         var darkModeToggle = doc.getElementById("darkModeToggle");
 
-        // TODO: move to setUpNavLink
         var account = doc.getElementById("sideMenuButton1");
         var calendar = doc.getElementById("sideMenuButton2");
         var commons = doc.getElementById("sideMenuButton3");
@@ -59,7 +70,6 @@ function popup(tabs, storage, scripting, doc) {
         darkModeToggle.checked = result.darkMode;
         backgroundTextBox.value = result.backgroundImg;
 
-        //TODO: move to setupNavLink
         history.checked = !result.rmHistory;
         help.checked = !result.rmHelp;
         commons.checked = !result.rmCommons;
@@ -71,7 +81,9 @@ function popup(tabs, storage, scripting, doc) {
       }
     );
   }
-
+  /**
+   * The function used when the toggle is used to turn dark mode on and off. Afterwards, it saves the setting to the storage object.
+   */
   function onDarkModeToggle() {
     var checked = doc.getElementById("darkModeToggle").checked;
     if (checked) {
@@ -93,6 +105,9 @@ function popup(tabs, storage, scripting, doc) {
     storage.set({ darkMode: checked });
   }
 
+  /**
+   * The function used when the 'change background' button is clicked. It takes the image address provided in the text box and replaces the webpage's background with the image linked to the image address. It then saves the address so future openings of Canvas webpages do the same.
+   */
   function onBackgroundClick() {
     var url = doc.getElementById("url_textbox").value;
     scripting.executeScript({
@@ -107,6 +122,9 @@ function popup(tabs, storage, scripting, doc) {
     storage.set({ backgroundImg: url });
   }
 
+  /**
+   * The function used for setting up the add/hide buttons for unwanted Canvas side menu options, such as 'History' and 'Inbox'.
+   */
   function setupNavLink(buttonId, elementId, storageId) {
     var button = doc.getElementById(buttonId);
     button.addEventListener("click", () => {
@@ -123,6 +141,9 @@ function popup(tabs, storage, scripting, doc) {
     });
   }
 
+  /**
+   * The function used for the background color change functionality. It takes the color value determined by the color picker and changes the background to that color.
+   */
   function colorChoice() {
     let color = doc.getElementById("chooser").value;
     doc.body.style.backgroundColor = color;
