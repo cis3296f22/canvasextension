@@ -145,8 +145,15 @@ function popup(tabs, storage, scripting, doc) {
    * The function used for the background color change functionality. It takes the color value determined by the color picker and changes the background to that color.
    */
   function colorChoice() {
-    let color = doc.getElementById("chooser").value;
-    doc.body.style.backgroundColor = color;
+	let color = doc.getElementById("chooser").value;
+	scripting.executeScript({
+		target: { tabId: tabId, allFrames: true },
+		func: function (input) {
+			document.body.style.backgroundColor = input;
+		},
+		args: [color],
+	  });
+	
   }
 
   return {
