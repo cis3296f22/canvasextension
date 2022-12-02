@@ -26,6 +26,7 @@ function content(storage, doc, win) {
           "rmGroups",
           "rmCourses",
           "rmAccount",
+          "colorChoice",
         ],
         function (result) {
           setDarkMode(result.darkMode);
@@ -43,6 +44,9 @@ function content(storage, doc, win) {
               "url('" + result.backgroundImg + "')";
             doc.body.style.backgroundRepeat = "no-repeat";
             doc.body.style.backgroundSize = "contain";
+          }
+          if (result.colorChoice) {
+            doc.body.style.backgroundColor = result.colorChoice;
           }
         }
       );

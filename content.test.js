@@ -39,6 +39,7 @@ test("Test Loading With Darkmode ", () => {
       "rmGroups",
       "rmCourses",
       "rmAccount",
+      "colorChoice",
     ],
     expect.any(Function)
   );
@@ -71,6 +72,7 @@ test("Test Loading Without Darkmode", () => {
       "rmGroups",
       "rmCourses",
       "rmAccount",
+      "colorChoice",
     ],
     expect.any(Function)
   );
