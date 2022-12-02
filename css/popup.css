@@ -1,5 +1,5 @@
 body {
-  width: 500px;
+  width: 450px;
   height: 100%;
   font-family: "Rubik", sans-serif;
   font-size: 12px;
@@ -41,26 +41,43 @@ h1 {
 
 .dark-mode {
   margin-top: 10px;
-  background-color: #1f1e1e;
-  width: 180px;
-  padding: 5px;
+  width: 450px;
+}
+.dark-label{
+  font-size: 20px;
+	padding-left: 0px;
 }
 
-.background-label{
-  top: 120px;
-  width: 100px;
-  margin-left: 5px;
-  
+.darkModetoggle{
+  display: flex;
+  position: absolute;
+  top: 10px;
+  left: 340px;
 }
+
 
 .background-container{
   display: inline-block;
   position: absolute;
   height: 30px;
   top: 150px;
-  background-color: #1f1e1e;
   border: 5px;
   margin-left: -10px;
+}
+
+.background-label{
+  font-size: 20px;
+  
+}
+.url_textbox{
+  position: absolute;
+  left: 250px;
+  width: 70px;
+}
+.backgroundButton{
+  position: absolute;
+  top: 30px;
+  left: 333px;
 }
 
 .side-menu {
@@ -77,12 +94,14 @@ h1 {
 
 .color-container{
   display: flex;
+  font-size: 20px;
   height: 50px;
-  width: 300px;
-  background-color: #1f1e1e;
+  width: 450px;
 }
-.color-container button{
+.colorBlock{
 	height: 30px;
+  position: absolute;
+  left: 340px;
 }
 
 * {
@@ -96,7 +115,6 @@ h1 {
   /* Create two equal columns that sits next to each other */
   .column {
 	flex: 50%;
-	background-color: #1f1e1e;
   }
   .column p{
 	position: relative;
@@ -115,6 +133,7 @@ h1 {
 .side-head{
   top: 240px;
   display: flex;
+
   position:absolute;
   
 }

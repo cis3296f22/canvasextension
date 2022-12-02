@@ -120,4 +120,5 @@ if (typeof exports !== "undefined") {
   module.exports = content;
 } else {
   content(chrome.storage.sync, document, window).init();
+
 }
